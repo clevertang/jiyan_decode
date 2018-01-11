@@ -97,15 +97,15 @@ class gsxt(object):
     def __init__(self, br_name="phantomjs"):
         self.br = self.get_webdriver(br_name)
         self.wait = WebDriverWait(self.br, 10, 1.0)
-        self.br.set_page_load_timeout(8)
-        self.br.set_script_timeout(8)
+        # self.br.set_page_load_timeout(8)
+        # self.br.set_script_timeout(8)
 
     def input_params(self, name):
-        self.br.get("http://www.gsxt.gov.cn/index")
-        element = self.wait_for(By.ID, "keyword")
+        self.br.get("http://gs.gsxt.gov.cn/gsxygs/")
+        element = self.wait_for(By.NAME, "keyword")
         element.send_keys(name)
         time.sleep(1.1)
-        element = self.wait_for(By.ID, "btn_query")
+        element = self.wait_for(By.ID, "input_img")
         element.click()
         time.sleep(1.1)
 
